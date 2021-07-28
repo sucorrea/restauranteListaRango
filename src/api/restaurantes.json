@@ -1,0 +1,332 @@
+{
+    "restaurantes": [
+      {
+        "id": 1,
+        "name": "Cupcake para todos",
+        "address": "Rua dos Sonhos, 310",
+        "hours": [
+          {
+            "from": "09:00",
+            "to": "18:00",
+            "days": [2, 3, 4, 5, 6]
+          },
+          {
+            "from": "11:00",
+            "to": "20:00",
+            "days": [7, 1]
+          }
+        ],
+        "image": "https://images.unsplash.com/photo-1525640788966-69bdb028aa73?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d53c30ba55d9ca863d57fabfffdb416b&auto=format&fit=crop&w=1047&q=80",
+        "menus": [
+          {
+            "groupId": 1,
+            "group": "Doces",
+            "foods": [
+              {
+                "foodId": 1,
+                "name": "Brigadeiro de padaria",
+                "image": "https://st4.depositphotos.com/1077028/21147/i/1600/depositphotos_211470810-stock-photo-brigadeiro-brazilian-famous-chocolate-candy.jpg",
+                "price": 8,
+                "sales": [
+                  {
+                    "description": "Terça-feira doce",
+                    "price": 5,
+                    "hours": [
+                      {
+                        "from": "09:00",
+                        "to": "18:00",
+                        "days": [3]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "foodId": 2,
+                "name": "Sonho de chocolate",
+                "price": 6
+              },
+              {
+                "foodId": 3,
+                "name": "Brownie",
+                "image": "https://st.depositphotos.com/1692343/1996/i/950/depositphotos_19965431-stock-photo-fresh-homemade-chocolate-brownie.jpg",
+                "price": 4.5,
+                "group": "Doces",
+                "sales": [
+                  {
+                    "description": "Terça-feira doce",
+                    "price": 5,
+                    "hours": [
+                      {
+                        "from": "09:00",
+                        "to": "18:00",
+                        "days": [3]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "foodId": 4,
+                "name": "Paçoca caseira",
+                "image": "https://st3.depositphotos.com/8857146/14730/i/1600/depositphotos_147309937-stock-photo-pe-de-moleque-and-peanut.jpg",
+                "price": 3.5,
+                "sales": [
+                  {
+                    "description": "Terça-feira doce",
+                    "price": 5,
+                    "hours": [
+                      {
+                        "from": "09:00",
+                        "to": "18:00",
+                        "days": [3]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "foodId": 5,
+                "name": "Cupcake de banana",
+                "image": "https://static8.depositphotos.com/1055647/1027/i/950/depositphotos_10271401-stock-photo-banana-and-carrot-bran-muffins.jpg",
+                "price": 6.5,
+                "sales": [
+                  {
+                    "description": "Terça-feira doce",
+                    "price": 5,
+                    "hours": [
+                      {
+                        "from": "09:00",
+                        "to": "18:00",
+                        "days": [3]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "groupId": 2,
+            "group": "Salgados",
+            "foods": [
+              {
+                "foodId": 1,
+                "name": "Salgado de banana com chiclete",
+                "image": "https://static7.depositphotos.com/1009541/749/i/950/depositphotos_7494671-stock-photo-arabic-pastry-buns-with-cheese.jpg",
+                "price": 5.2
+              }
+            ]
+          },
+          {
+            "groupId": 3,
+            "group": "Pratos estranhos",
+            "foods": [
+              {
+                "foodId": 1,
+                "name": "Feijoada de nutella com manga",
+                "image": "https://st2.depositphotos.com/4687049/6974/i/450/depositphotos_69740977-stock-photo-typical-brazilian-dish-feijoada.jpg",
+                "price": 10.99
+              },
+              {
+                "foodId": 3,
+                "name": "Panqueca de abóbora com abacate",
+                "image": "https://static4.depositphotos.com/1011240/292/i/450/depositphotos_2921445-stock-photo-pancakes-with-spinach.jpg",
+                "price": 6.8
+              }
+            ]
+          },
+          {
+            "groupId": 4,
+            "group": "Sucos exóticos",
+            "foods": [
+              {
+                "foodId": 1,
+                "name": "Suco de amora com couve",
+                "image": "https://st2.depositphotos.com/2444995/8287/i/450/depositphotos_82874434-stock-photo-fresh-green-smoothie-on-rustic.jpg",
+                "price": 5.8
+              },
+              {
+                "foodId": 2,
+                "name": "Suco de uva com goiaba",
+                "image": "https://st2.depositphotos.com/1055484/10070/i/450/depositphotos_100703178-stock-photo-fresh-guava-juice-on-white.jpg",
+                "price": 5.8
+              },
+              {
+                "foodId": 3,
+                "name": "Suco de ameixa com romã",
+                "image": "https://static8.depositphotos.com/1001069/1050/i/450/depositphotos_10503128-stock-photo-pomegranate-juice-in-a-glass.jpg",
+                "price": 5.8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Comida de república",
+        "address": "Rua, 890",
+        "hours": [
+          {
+            "from": "12:00",
+            "to": "15:00",
+            "days": [2, 3, 4, 5, 6]
+          },
+          {
+            "from": "19:00",
+            "to": "23:00",
+            "days": [2, 3, 4, 5]
+          },
+          {
+            "from": "19:00",
+            "to": "02:00",
+            "days": [6, 7, 1]
+          }
+        ],
+        "image": "https://images.unsplash.com/photo-1520209268518-aec60b8bb5ca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b2b04f771779f9ce281cb3e6035f360e&auto=format&fit=crop&w=884&q=80",
+        "menus": [
+          {
+            "groupId": 1,
+            "group": "Pratos principais",
+            "foods": [
+              {
+                "foodId": 1,
+                "name": "Macarrão com salsicha",
+                "image": "https://st.depositphotos.com/2252541/3739/i/450/depositphotos_37397413-stock-photo-pasta-with-sausage.jpg",
+                "price": 1.2
+              },
+              {
+                "foodId": 2,
+                "name": "Miojo sem tempero",
+                "price": 0.89
+              },
+              {
+                "foodId": 3,
+                "name": "Lasanha congelada",
+                "image": "https://st.depositphotos.com/1000339/2143/i/450/depositphotos_21439363-stock-photo-lasagna.jpg",
+                "price": 10.2
+              },
+              {
+                "foodId": 4,
+                "name": "Pizza com ketchup",
+                "price": 10
+              }
+            ]
+          },
+          {
+            "groupId": 2,
+            "group": "Bebidas",
+            "foods": [
+              {
+                "foodId": 2,
+                "name": "Coca cola",
+                "price": 6.8
+              },
+              {
+                "foodId": 2,
+                "name": "Cerveja lata",
+                "price": 3.5
+              },
+              {
+                "restaurantId": 2,
+                "name": "Cerveja Litrão",
+                "price": 7,
+                "sales": [
+                  {
+                    "description": "Happy Hour",
+                    "price": 4,
+                    "hours": [
+                      {
+                        "from": "18:00",
+                        "to": "20:00",
+                        "days": [2, 3, 4, 5, 6]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Comida de mãe",
+        "image": "https://images.unsplash.com/photo-1527756898251-203e9ce0d9c4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6571e314f2e91127c49108ecaabffdaf&auto=format&fit=crop&w=1054&q=80",
+        "address": "Rua da minha casa, 417",
+        "hours": [
+          {
+            "from": "12:00",
+            "to": "15:00",
+            "days": [2, 3, 4, 5, 6]
+          },
+          {
+            "from": "19:00",
+            "to": "02:00",
+            "days": [6, 7, 1]
+          }
+        ],
+        "menus": [
+          {
+            "groupId": 1,
+            "group": "Pratos principais",
+            "foods": [
+              {
+                "foodId": 1,
+                "name": "Carne de panela",
+                "image": "https://st2.depositphotos.com/2075507/6402/i/450/depositphotos_64025243-stock-photo-braised-beef-pot-roast-stew.jpg"
+              },
+              {
+                "foodId": 2,
+                "name": "Arroz branco",
+                "image": "https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2cba1f50db65c7320834e1a1a7bfba69&auto=format&fit=crop&w=1050&q=80"
+              },
+              {
+                "foodId": 3,
+                "name": "Feijão caseiro",
+                "image": "https://st.depositphotos.com/2629243/3209/i/950/depositphotos_32099973-stock-photo-homemade-chili-bean-soup-with.jpg"
+              },
+              {
+                "foodId": 4,
+                "name": "Strogonoff",
+                "image": "https://static7.depositphotos.com/1215600/730/i/450/depositphotos_7308102-stock-photo-beef-stroganoff-meal-horizontal.jpg"
+              },
+              {
+                "foodId": 5,
+                "name": "Lasanha à bolonhesa",
+                "image": "https://st.depositphotos.com/1326558/4334/i/950/depositphotos_43344915-stock-photo-classic-lasagna-with-bolognese-sauce.jpg"
+              },
+              {
+                "foodId": 6,
+                "name": "Bife acebolado",
+                "image": "https://st2.depositphotos.com/1428014/5510/i/450/depositphotos_55108101-stock-photo-salisbury-steak-with-onions.jpg"
+              }
+            ]
+          },
+          {
+            "groupId": 2,
+            "group": "Saladas",
+            "foods": [
+              {
+                "foodId": 3,
+                "name": "Salada de alface e tomate",
+                "image": "https://st.depositphotos.com/1491329/4426/i/450/depositphotos_44268595-stock-photo-greek-salad-bowl-with-feta.jpg"
+              }
+            ]
+          },
+          {
+            "groupId": 3,
+            "group": "Bebidas",
+            "foods": [
+              {
+                "foodId": 3,
+                "name": "Suco de laranja",
+                "image": "https://st.depositphotos.com/1177973/2359/i/450/depositphotos_23593173-stock-photo-glass-and-pitcher-of-orange.jpg"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
