@@ -3,7 +3,6 @@ import { createStyles, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles((theme) => createStyles({
   root: {
     display: 'flex',
-    textDecoration: 'none',
     width: '100%',
     padding: theme.spacing(2),
     marginTop: theme.spacing(8),
@@ -26,21 +25,12 @@ const useStyles = makeStyles((theme) => createStyles({
     width: 125,
     height: 125,
     padding: theme.spacing(0.5),
-    borderRadius: 8,
   },
   nameWrapper: {
     marginLeft: theme.spacing(1),
   },
   name: {
-    fontSize: 24,
     fontWeight: 'bold',
-    opacity: 1,
-  },
-  address: {
-    fontSize: 18,
-  },
-  funcionamento: {
-    fontSize: 12,
   },
 }));
 export default useStyles;

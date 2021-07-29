@@ -5,12 +5,14 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+
 import Api from '../../../api/Api';
 import { IMenu, IRestaurante } from '../../../Types';
 
 type DetalhesRestauranteProviderProps = {
   id: string;
 };
+
 type RestauranteContextValues = {
   detalheRestaurante: IRestaurante;
   filtrarMenu(name: string): void;
@@ -29,6 +31,7 @@ const DetalhesRestauranteProvider = ({
   const [detalheRestaurante, setDetalheRestaurante] = useState<IRestaurante>(
     {} as IRestaurante,
   );
+
   useEffect(() => {
     Api.get(`restaurantes/${id}`).then((res) => {
       const dados = res.data as IRestaurante;
@@ -36,16 +39,18 @@ const DetalhesRestauranteProvider = ({
       setMenufiltro(dados.menus);
     });
   }, [id]);
+
   const filtrarMenu = (name: string) => {
     const filtro = detalheRestaurante.menus.map((menu) => ({
       ...menu,
       foods: menu.foods.filter(
-        (food) => (
-          food.name.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) > -1),
+        (food) => food.name.toLocaleLowerCase()
+          .indexOf(name.toLocaleLowerCase()) > -1,
       ),
     }));
     setMenufiltro(filtro);
   };
+
   const values: RestauranteContextValues = {
     detalheRestaurante,
     menufiltro,

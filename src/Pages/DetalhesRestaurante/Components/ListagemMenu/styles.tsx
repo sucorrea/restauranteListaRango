@@ -7,9 +7,5 @@ const useStyles = makeStyles((theme) => createStyles({
     marginLeft: theme.spacing(8),
   },
 
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
 }));
 export default useStyles;

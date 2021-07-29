@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+
 import Api from '../../../api/Api';
 import { IRestaurante } from '../../../Types';
 
@@ -17,9 +18,13 @@ const RestauranteContext = createContext<RestauranteContextValues>(
   {} as RestauranteContextValues,
 );
 
-const ListagemRestauranteProvider = ({ children }: PropsWithChildren<unknown>) => {
+const ListagemRestauranteProvider = ({
+  children,
+}: PropsWithChildren<unknown>) => {
   const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
-  const [restaurantesfiltro, setRestaurantesfiltro] = useState<IRestaurante[]>([]);
+  const [restaurantesfiltro, setRestaurantesfiltro] = useState<IRestaurante[]>(
+    [],
+  );
   useEffect(() => {
     Api.get('/restaurantes/').then((res) => {
       setRestaurantesfiltro(res.data);
@@ -27,7 +32,10 @@ const ListagemRestauranteProvider = ({ children }: PropsWithChildren<unknown>) =
     });
   }, []);
   const filtrarRestaurante = (name: string) => {
-    const filtro = restaurantes.filter((restaurante) => restaurante.name.toLocaleLowerCase().indexOf(name.toLowerCase()) > -1);
+    const filtro = restaurantes.filter(
+      (restaurante) => (
+        restaurante.name.toLocaleLowerCase().indexOf(name.toLowerCase()) > -1),
+    );
     setRestaurantesfiltro(filtro);
   };
   const values: RestauranteContextValues = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+
 import Box from '@material-ui/core/Box';
+
 import PesquisaMenu from './Components/PesquisaMenu';
 import CardRestaurante from './Components/DadosRestauranteCard';
 import Menu from './Components/ListagemMenu';
@@ -11,6 +13,7 @@ import DetalhesRestauranteProvider from './Context/DetalhesRestauranteProvider';
 type Params = {
   id: string;
 };
+
 const DetalhesRestaurante = () => {
   const classes = useStyles();
   const { id } = useParams<Params>();

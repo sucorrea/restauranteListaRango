@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Grid from '@material-ui/core/Grid';
+
 import Restaurante from '../index';
 import useStyles from './styles';
 import { useListagemRestauranteContext } from '../../../Context/ListagemRestaurantesProvider';

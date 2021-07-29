@@ -32,12 +32,8 @@ const useStyles = makeStyles((theme) => createStyles({
   },
 
   name: {
-    fontSize: 14,
     fontWeight: 'bold',
   },
 
-  address: {
-    fontSize: 12,
-  },
 }));
 export default useStyles;

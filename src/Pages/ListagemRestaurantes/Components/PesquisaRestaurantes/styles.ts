@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => createStyles({
   },
 
   iconButton: {
-    padding: 10,
+    padding: theme.spacing(1.5),
   },
 
   input: {

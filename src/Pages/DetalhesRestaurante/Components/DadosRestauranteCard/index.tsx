@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+
 import useStyles from './styles';
 import { NomeDiaDaSemana } from '../../../../Utils/NomeDiaDaSemana';
 import { useDetalhesRestauranteContext } from '../../Context/DetalhesRestauranteProvider';
@@ -8,6 +10,7 @@ import { useDetalhesRestauranteContext } from '../../Context/DetalhesRestaurante
 const DadosRestauranteCard = () => {
   const classes = useStyles();
   const { detalheRestaurante } = useDetalhesRestauranteContext();
+
   return (
     <Box className={classes.root}>
       <Box className={classes.imageWrapper}>
@@ -17,14 +20,21 @@ const DadosRestauranteCard = () => {
           alt="Foto Restaurante"
         />
         <Box className={classes.nameWrapper}>
-          <Typography className={classes.name}>
+          <Typography
+            variant="h5"
+            className={classes.name}
+          >
             {detalheRestaurante.name}
           </Typography>
-          <Typography className={classes.address}>
+          <Typography
+            variant="h6"
+          >
             {detalheRestaurante.address}
           </Typography>
           {detalheRestaurante.hours?.map((hour) => (
-            <Typography className={classes.funcionamento}>
+            <Typography
+              variant="body2"
+            >
               {`${NomeDiaDaSemana[hour.days[0]]} à ${NomeDiaDaSemana[hour.days[hour.days.length - 1]]}: ${hour.from} às ${hour.to}`}
             </Typography>
           ))}

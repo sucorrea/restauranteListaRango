@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import Badge from '@material-ui/core/Badge';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+
 import useStyles from './styles';
 import { IDay, IRestaurante } from '../../../../Types';
 import { useListagemRestauranteContext } from '../../Context/ListagemRestaurantesProvider';
@@ -52,11 +54,24 @@ const RestauranteInformações = ({
         >
           <Paper className={classes.paper}>
             <Box className={classes.imageWrapper}>
-              <img className={classes.image} src={image} alt={name} />
+              <img
+                className={classes.image}
+                src={image}
+                alt={name}
+              />
             </Box>
             <Box className={classes.nameWrapper}>
-              <Typography className={classes.name}>{name}</Typography>
-              <Typography className={classes.address}>{address}</Typography>
+              <Typography
+                className={classes.name}
+                variant="subtitle1"
+              >
+                {name}
+              </Typography>
+              <Typography
+                variant="body2"
+              >
+                {address}
+              </Typography>
             </Box>
           </Paper>
         </Badge>

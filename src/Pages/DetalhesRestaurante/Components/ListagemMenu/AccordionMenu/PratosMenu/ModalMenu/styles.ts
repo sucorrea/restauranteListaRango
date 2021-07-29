@@ -1,47 +1,9 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => createStyles({
-  root: {
-    flexGrow: 1,
-    textDecoration: 'none',
-  },
-
-  paper: {
-    display: 'flex',
-    padding: theme.spacing(2),
-    color: theme.palette.text.secondary,
-    minWidth: 386,
-  },
-
-  imageWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  image: {
-    width: 85,
-    height: 85,
-    borderRadius: 2,
-  },
-
   nameWrapper: {
     marginLeft: theme.spacing(2.5),
     maxWidth: 200,
-  },
-
-  name: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-
-  descricao: {
-    fontSize: 12,
-  },
-
-  preco: {
-    fontSize: 16,
-    fontWeight: 'bolder',
   },
 
   imageWrapperModal: {
@@ -63,12 +25,7 @@ const useStyles = makeStyles((theme) => createStyles({
     padding: theme.spacing(1),
   },
 
-  descricaoModal: {
-    fontSize: 12,
-  },
-
   precoModal: {
-    fontSize: 20,
     fontWeight: 'bolder',
   },
 
@@ -80,7 +37,6 @@ const useStyles = makeStyles((theme) => createStyles({
   },
 
   nameModal: {
-    fontSize: 20,
     fontWeight: 'bolder',
   },
 }));
