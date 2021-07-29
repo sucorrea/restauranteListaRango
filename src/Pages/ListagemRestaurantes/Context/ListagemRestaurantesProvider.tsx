@@ -25,12 +25,14 @@ const ListagemRestauranteProvider = ({
   const [restaurantesfiltro, setRestaurantesfiltro] = useState<IRestaurante[]>(
     [],
   );
+
   useEffect(() => {
     Api.get('/restaurantes/').then((res) => {
       setRestaurantesfiltro(res.data);
       setRestaurantes(res.data);
     });
   }, []);
+
   const filtrarRestaurante = (name: string) => {
     const filtro = restaurantes.filter(
       (restaurante) => (
@@ -38,6 +40,7 @@ const ListagemRestauranteProvider = ({
     );
     setRestaurantesfiltro(filtro);
   };
+
   const values: RestauranteContextValues = {
     restaurantes: restaurantesfiltro,
     filtrarRestaurante,

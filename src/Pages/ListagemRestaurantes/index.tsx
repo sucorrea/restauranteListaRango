@@ -23,7 +23,6 @@ const ListagemRestaurantes = () => {
             align="center"
           >
             Bem-vindo ao Lista Rango
-
           </Typography>
           <PesquisaRestaurantes texto="Buscar estabelecimento" />
           <Box>
