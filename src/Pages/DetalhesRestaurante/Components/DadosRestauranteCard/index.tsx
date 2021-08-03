@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
-import { NomeDiaDaSemana } from '../../../../Utils/NomeDiaDaSemana';
+import { NomeDiaSemana } from '../../../../Utils/NomeDiaSemana';
 import { useDetalhesRestauranteContext } from '../../Context/DetalhesRestauranteProvider';
 
 const DadosRestauranteCard = () => {
@@ -35,7 +35,9 @@ const DadosRestauranteCard = () => {
             <Typography
               variant="body2"
             >
-              {`${NomeDiaDaSemana[hour.days[0]]} à ${NomeDiaDaSemana[hour.days[hour.days.length - 1]]}: ${hour.from} às ${hour.to}`}
+              {`${NomeDiaSemana[hour.days[0]]} à ${
+                NomeDiaSemana[hour.days[hour.days.length - 1]]}: ${
+                hour.from} às ${hour.to}`}
             </Typography>
           ))}
         </Box>

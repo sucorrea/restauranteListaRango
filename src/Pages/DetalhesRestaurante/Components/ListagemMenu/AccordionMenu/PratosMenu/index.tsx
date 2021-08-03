@@ -24,33 +24,19 @@ const PratosMenu = ({ image, name, price }: IFood) => {
   return (
     <Box>
       <Grid item xs={6} sm={3}>
-        <Box
-          className={classes.paper}
-          onClick={handleOpen}
-        >
+        <Box className={classes.paper} onClick={handleOpen}>
           <Box className={classes.imageWrapper}>
-            <img
-              className={classes.image}
-              src={image}
-              alt={name}
-            />
+            <img className={classes.image} src={image} alt={name} />
           </Box>
           <Box className={classes.nameWrapper}>
-            <Typography
-              className={classes.name}
-            >
-              {name}
-            </Typography>
-            <Typography
-              variant="caption"
-            >
+            <Typography className={classes.name}>{name}</Typography>
+            <Typography variant="caption">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             </Typography>
-            <Typography
-              className={classes.preco}
-              color="primary"
-            >
-              {price !== undefined ? formatToBRL(price) : 'Preço não informado'}
+            <Typography className={classes.preco} color="primary">
+              {price !== undefined
+                ? formatToBRL(price)
+                : 'Preço não informado'}
             </Typography>
           </Box>
         </Box>

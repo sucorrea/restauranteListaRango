@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Box from '@material-ui/core/Box';
-import CollapseMenu from './AccordionMenu';
+import AccordionMenu from './AccordionMenu';
 
 import useStyles from './styles';
 import { useDetalhesRestauranteContext } from '../../Context/DetalhesRestauranteProvider';
@@ -13,7 +13,7 @@ const ListagemMenu = () => {
   return (
     <Box className={classes.root}>
       {menufiltro.map((menu) => (
-        <CollapseMenu
+        <AccordionMenu
           menu={menu}
         />
       ))}

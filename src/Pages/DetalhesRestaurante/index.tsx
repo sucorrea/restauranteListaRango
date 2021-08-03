@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 
 import PesquisaMenu from './Components/PesquisaMenu';
-import CardRestaurante from './Components/DadosRestauranteCard';
-import Menu from './Components/ListagemMenu';
-import Header from '../../components/Header';
+import DadosRestauranteCard from './Components/DadosRestauranteCard';
+import ListagemMenu from './Components/ListagemMenu';
+import Header from '../../Components/Header';
 import useStyles from './styles';
 import DetalhesRestauranteProvider from './Context/DetalhesRestauranteProvider';
 
@@ -23,12 +23,12 @@ const DetalhesRestaurante = () => {
       <Box>
         <Header />
         <Box className={classes.cardrestaurante}>
-          <CardRestaurante />
+          <DadosRestauranteCard />
         </Box>
         <Box className={classes.root}>
           <PesquisaMenu />
         </Box>
-        <Menu />
+        <ListagemMenu />
       </Box>
     </DetalhesRestauranteProvider>
   );

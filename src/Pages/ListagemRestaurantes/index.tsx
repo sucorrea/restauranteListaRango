@@ -3,7 +3,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
-import Header from '../../components/Header';
+import Header from '../../Components/Header';
 import ListagemRestauranteProvider from './Context/ListagemRestaurantesProvider';
 import PesquisaRestaurantes from './Components/PesquisaRestaurantes';
 import Restaurantes from './Components/RestauranteInformações/RestaurantesLista';

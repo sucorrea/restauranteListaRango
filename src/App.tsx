@@ -6,30 +6,26 @@ import React, {
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-import Home from './Pages/ListagemRestaurantes';
-import Cardapio from './Pages/DetalhesRestaurante';
+import ListagemRestaurantes from './Pages/ListagemRestaurantes';
+import DetalhesRestaurante from './Pages/DetalhesRestaurante';
 
-function App() {
+const App = () => {
   const theme = createMuiTheme();
 
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route
-            path="/restaurantes/:id"
-          >
-            <Cardapio />
+          <Route path="/restaurantes/:id">
+            <DetalhesRestaurante />
           </Route>
-          <Route
-            path="/"
-          >
-            <Home />
+          <Route exact path="/">
+            <ListagemRestaurantes />
           </Route>
         </Switch>
       </Router>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

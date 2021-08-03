@@ -30,7 +30,6 @@ const PesquisaRestaurantes = ({ texto }: PesquisaProps) => {
       <IconButton
         className={classes.iconButton}
         type="submit"
-        aria-label="search"
       >
         <SearchIcon />
       </IconButton>

@@ -8,49 +8,20 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
-import { IDay, IRestaurante } from '../../../../Types';
-import { useListagemRestauranteContext } from '../../Context/ListagemRestaurantesProvider';
+import { IRestaurante } from '../../../../Types';
+import { DisponibilidadeRestaurante } from './DisponibilidadeRestaurante';
 
 const RestauranteInformações = ({
-  id, name, image, address,
+  id, name, image, address, hours,
 } : IRestaurante) => {
   const classes = useStyles();
-  const { restaurantes } = useListagemRestauranteContext();
-  const dataAtual = new Date();
-  const checaDia = restaurantes[0].hours[0].days.indexOf(
-    new Date().getDay() as IDay,
-  );
-  const horaAbre = Number(restaurantes[0].hours[0].from.substring(0, 2));
-  const minutoAbre = Number(restaurantes[0].hours[0].from.substring(3, 5));
-  const horarioAbertura = new Date(
-    dataAtual.getFullYear(),
-    dataAtual.getMonth(),
-    dataAtual.getDate(),
-    horaAbre,
-    minutoAbre,
-  );
-  const horaFecha = Number(restaurantes[0].hours[0].to.substring(0, 2));
-  const minutoFecha = Number(restaurantes[0].hours[0].to.substring(3, 5));
-  const horarioFechamento = new Date(
-    dataAtual.getFullYear(),
-    dataAtual.getMonth(),
-    dataAtual.getDate(),
-    horaFecha,
-    minutoFecha,
-  );
 
   return (
     <Link to={`/restaurantes/${Number(id)}`} className={classes.root}>
       <Grid item xs={6} sm={3}>
         <Badge
           color="primary"
-          badgeContent={
-            checaDia >= 0
-            && dataAtual > horarioAbertura
-            && dataAtual < horarioFechamento
-              ? 'Aberto'
-              : 'Fechado'
-          }
+          badgeContent={DisponibilidadeRestaurante(hours)}
         >
           <Paper className={classes.paper}>
             <Box className={classes.imageWrapper}>

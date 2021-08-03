@@ -1,4 +1,4 @@
-export const NomeDiaDaSemana = {
+export const NomeDiaSemana = {
   1: 'Domingo',
   2: 'Segunda',
   3: 'Terça',

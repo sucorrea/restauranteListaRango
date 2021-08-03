@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import ItemMenu from './PratosMenu';
+import PratosMenu from './PratosMenu';
 import { IMenu } from '../../../../../Types';
 
 type CollapseMenuProps = {
@@ -27,7 +27,7 @@ const AccordionMenu = ({ menu }: CollapseMenuProps) => {
             <Grid container spacing={3}>
               {menu.foods.map((food) => (
                 <Box>
-                  <ItemMenu
+                  <PratosMenu
                     key={food.foodId}
                     name={food.name}
                     price={food.price}

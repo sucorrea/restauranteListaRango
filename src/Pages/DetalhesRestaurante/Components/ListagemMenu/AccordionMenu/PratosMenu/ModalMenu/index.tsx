@@ -31,32 +31,22 @@ const ModalMenu = ({
     setContador((prevContador) => prevContador + 1);
   };
 
-  const handleRemover = () => {
-    if (contador > 0) {
-      setContador((prevContador) => prevContador - 1);
+  const handleRemover = () => {};
+  setContador((prevContador) => {
+    if (prevContador > 0) {
+      return prevContador - 1;
     }
-  };
+    return prevContador;
+  });
 
   return (
     <Box>
-      <Dialog
-        onClose={handleClose}
-        open={open}
-        fullWidth
-        maxWidth="xs"
-      >
+      <Dialog onClose={handleClose} open={open} fullWidth maxWidth="xs">
         <Box className={classes.imageWrapperModal}>
-          <img
-            className={classes.imageModal}
-            src={image}
-            alt={name}
-          />
+          <img className={classes.imageModal} src={image} alt={name} />
         </Box>
         <Box className={classes.nameWrapper}>
-          <Typography
-            variant="h5"
-            className={classes.nameModal}
-          >
+          <Typography variant="h5" className={classes.nameModal}>
             {name}
           </Typography>
         </Box>
@@ -74,33 +64,17 @@ const ModalMenu = ({
         </Box>
         <Box className={classes.botaoWrapper}>
           <Button>
-            <Button
-              color="primary"
-              size="small"
-              onClick={handleRemover}
-            >
+            <Button color="primary" size="small" onClick={handleRemover}>
               <RemoveIcon />
             </Button>
-            <Typography
-              align="center"
-              variant="h6"
-              color="primary"
-            >
+            <Typography align="center" variant="h6" color="primary">
               {contador}
             </Typography>
-            <Button
-              color="primary"
-              size="small"
-              onClick={handleAdicionar}
-            >
+            <Button color="primary" size="small" onClick={handleAdicionar}>
               <AddIcon />
             </Button>
           </Button>
-          <Button
-            variant="contained"
-            size="large"
-            color="primary"
-          >
+          <Button variant="contained" size="large" color="primary">
             {` Adicionar ${
               price !== undefined ? formatToBRL(contador * price) : 'R$ 0,00'
             }`}

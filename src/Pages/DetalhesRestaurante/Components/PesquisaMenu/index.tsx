@@ -12,9 +12,9 @@ const PesquisaMenu = () => {
   const classes = useStyles();
   const context = useDetalhesRestauranteContext();
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     context.filtrarMenu(e.target.value);
-  }
+  };
 
   return (
     <Box className={classes.presquisa}>
@@ -26,7 +26,6 @@ const PesquisaMenu = () => {
       <IconButton
         className={classes.iconButton}
         type="submit"
-        aria-label="search"
       >
         <SearchIcon />
       </IconButton>

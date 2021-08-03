@@ -4,6 +4,7 @@ import React, {
   useContext,
   useEffect,
   useState,
+  useCallback,
 } from 'react';
 
 import Api from '../../../api/Api';
@@ -23,7 +24,7 @@ const RestauranteContext = createContext<RestauranteContextValues>(
   {} as RestauranteContextValues,
 );
 
-const DetalhesRestauranteProvider = ({
+const DetalhesRestauranteProvider = React.memo(({
   id,
   children,
 }: PropsWithChildren<DetalhesRestauranteProviderProps>) => {
@@ -40,7 +41,7 @@ const DetalhesRestauranteProvider = ({
     });
   }, [id]);
 
-  const filtrarMenu = (name: string) => {
+  const filtrarMenu = useCallback((name: string) => {
     const filtro = detalheRestaurante.menus.map((menu) => ({
       ...menu,
       foods: menu.foods.filter(
@@ -49,7 +50,7 @@ const DetalhesRestauranteProvider = ({
       ),
     }));
     setMenufiltro(filtro);
-  };
+  }, [detalheRestaurante.menus]);
 
   const values: RestauranteContextValues = {
     detalheRestaurante,
@@ -62,7 +63,7 @@ const DetalhesRestauranteProvider = ({
       {children}
     </RestauranteContext.Provider>
   );
-};
+});
 
 export const useDetalhesRestauranteContext = () => {
   const context = useContext(RestauranteContext);
