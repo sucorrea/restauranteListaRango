@@ -10,14 +10,14 @@ import { useDetalhesRestauranteContext } from '../../Context/DetalhesRestaurante
 
 const PesquisaMenu = () => {
   const classes = useStyles();
-  const context = useDetalhesRestauranteContext();
+  const { filtrarMenu } = useDetalhesRestauranteContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    context.filtrarMenu(e.target.value);
+    filtrarMenu(e.target.value);
   };
 
   return (
-    <Box className={classes.presquisa}>
+    <Box className={classes.root}>
       <InputBase
         className={classes.input}
         placeholder="Buscar no menu"

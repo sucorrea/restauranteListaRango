@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => createStyles({
     width: '100%',
     padding: theme.spacing(2),
     marginTop: theme.spacing(8),
-    marginLeft: theme.spacing(8),
     marginRight: theme.spacing(8),
     color: theme.palette.text.secondary,
   },

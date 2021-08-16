@@ -1,3 +1,6 @@
+export type HttpResponse<T> = {
+  data: T;
+};
 export type IDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export type ISale = {

@@ -1,7 +1,7 @@
 import { createStyles, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => createStyles({
-  presquisa: {
+  root: {
     display: 'flex',
     alignContent: 'center',
     justifyContent: 'center',
@@ -10,16 +10,13 @@ const useStyles = makeStyles((theme) => createStyles({
     width: '40%',
     margin: theme.spacing(1),
   },
-
   iconButton: {
     padding: 10,
   },
-
   input: {
     display: 'flex',
     justifyContent: 'center',
     width: '80%',
   },
-
 }));
 export default useStyles;

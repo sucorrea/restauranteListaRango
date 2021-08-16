@@ -6,31 +6,24 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
 import useStyles from './styles';
-import { useListagemRestauranteContext } from '../../Context/ListagemRestaurantesProvider';
+import { useListagemRestaurantesContext } from '../../Context/ListagemRestaurantesProvider';
 
-type PesquisaProps = {
-  texto: string;
-};
-
-const PesquisaRestaurantes = ({ texto }: PesquisaProps) => {
+const PesquisaRestaurantes = () => {
   const classes = useStyles();
-  const context = useListagemRestauranteContext();
+  const { filtrarRestaurante } = useListagemRestaurantesContext();
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    context.filtrarRestaurante(e.target.value);
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    filtrarRestaurante(e.target.value);
+  };
 
   return (
-    <Box className={classes.presquisa}>
+    <Box className={classes.root}>
       <InputBase
         className={classes.input}
-        placeholder={texto}
+        placeholder="Pesquisa Menu"
         onChange={handleChange}
       />
-      <IconButton
-        className={classes.iconButton}
-        type="submit"
-      >
+      <IconButton className={classes.iconButton} type="submit">
         <SearchIcon />
       </IconButton>
     </Box>

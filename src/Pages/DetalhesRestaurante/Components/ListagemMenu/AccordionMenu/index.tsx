@@ -15,32 +15,23 @@ type CollapseMenuProps = {
   menu: IMenu;
 };
 
-const AccordionMenu = ({ menu }: CollapseMenuProps) => {
-  return (
-    <Box>
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>{menu.group}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box>
-            <Grid container spacing={3}>
-              {menu.foods.map((food) => (
-                <Box>
-                  <PratosMenu
-                    key={food.foodId}
-                    name={food.name}
-                    price={food.price}
-                    image={food.image}
-                  />
-                </Box>
-              ))}
-            </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-    </Box>
-  );
-};
+const AccordionMenu = ({ menu }: CollapseMenuProps) => (
+  <Accordion>
+    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+      <Typography>{menu.group}</Typography>
+    </AccordionSummary>
+    <AccordionDetails>
+      <Box>
+        <Grid container spacing={3}>
+          {menu.foods.map((food) => (
+            <Box>
+              <PratosMenu key={food.foodId} foods={food} />
+            </Box>
+          ))}
+        </Grid>
+      </Box>
+    </AccordionDetails>
+  </Accordion>
+);
 
 export default AccordionMenu;

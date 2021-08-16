@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 
 import PesquisaMenu from './Components/PesquisaMenu';
-import DadosRestauranteCard from './Components/DadosRestauranteCard';
+import DadosRestaurante from './Components/DadosRestaurante';
 import ListagemMenu from './Components/ListagemMenu';
 import Header from '../../Components/Header';
 import useStyles from './styles';
@@ -20,14 +20,10 @@ const DetalhesRestaurante = () => {
 
   return (
     <DetalhesRestauranteProvider id={id}>
-      <Box>
+      <Box className={classes.root}>
         <Header />
-        <Box className={classes.cardrestaurante}>
-          <DadosRestauranteCard />
-        </Box>
-        <Box className={classes.root}>
-          <PesquisaMenu />
-        </Box>
+        <DadosRestaurante />
+        <PesquisaMenu />
         <ListagemMenu />
       </Box>
     </DetalhesRestauranteProvider>

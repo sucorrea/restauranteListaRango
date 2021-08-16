@@ -2,58 +2,64 @@ import React, {
   createContext,
   PropsWithChildren,
   useContext,
-  useEffect,
   useState,
-  useCallback,
 } from 'react';
+import { useQuery } from 'react-query';
 
-import Api from '../../../api/Api';
+import Api from '../../../api';
 import { IMenu, IRestaurante } from '../../../Types';
 
 type DetalhesRestauranteProviderProps = {
   id: string;
 };
 
-type RestauranteContextValues = {
-  detalheRestaurante: IRestaurante;
-  filtrarMenu(name: string): void;
+type DetalhesRestauranteContextValues = {
+  filtrarMenu: (name: string) => void;
   menufiltro: IMenu[];
+  detalhesRestaurante: IRestaurante;
 };
 
-const RestauranteContext = createContext<RestauranteContextValues>(
-  {} as RestauranteContextValues,
+type HttpResponse<T> = {
+  data: T;
+};
+
+const RestauranteContext = createContext<DetalhesRestauranteContextValues>(
+  {} as DetalhesRestauranteContextValues,
 );
 
-const DetalhesRestauranteProvider = React.memo(({
+const DetalhesRestaurantesProvider = ({
   id,
   children,
 }: PropsWithChildren<DetalhesRestauranteProviderProps>) => {
   const [menufiltro, setMenufiltro] = useState<IMenu[]>([]);
-  const [detalheRestaurante, setDetalheRestaurante] = useState<IRestaurante>(
-    {} as IRestaurante,
-  );
 
-  useEffect(() => {
-    Api.get(`restaurantes/${id}`).then((res) => {
-      const dados = res.data as IRestaurante;
-      setDetalheRestaurante(dados);
-      setMenufiltro(dados.menus);
-    });
-  }, [id]);
+  async function BuscaRestaurante(): Promise<HttpResponse<IRestaurante>> {
+    const dados: HttpResponse<IRestaurante> = await Api.get(
+      `restaurantes/${id}`,
+    );
 
-  const filtrarMenu = useCallback((name: string) => {
-    const filtro = detalheRestaurante.menus.map((menu) => ({
+    return dados;
+  }
+
+  const { data } = useQuery('dados-detalhes-restaurante', () => BuscaRestaurante(), {
+    onSuccess: (dataSucesso) => {
+      setMenufiltro(dataSucesso.data.menus);
+    },
+  });
+
+  const filtrarMenu = (name: string) => {
+    const filtro = data?.data.menus.map((menu) => ({
       ...menu,
       foods: menu.foods.filter(
-        (food) => food.name.toLocaleLowerCase()
-          .indexOf(name.toLocaleLowerCase()) > -1,
+        (food) => food.name.toLocaleLowerCase().indexOf(name.toLocaleLowerCase()) > -1,
       ),
     }));
-    setMenufiltro(filtro);
-  }, [detalheRestaurante.menus]);
 
-  const values: RestauranteContextValues = {
-    detalheRestaurante,
+    setMenufiltro(filtro || []);
+  };
+
+  const values: DetalhesRestauranteContextValues = {
+    detalhesRestaurante: data?.data || ({} as IRestaurante),
     menufiltro,
     filtrarMenu,
   };
@@ -63,18 +69,18 @@ const DetalhesRestauranteProvider = React.memo(({
       {children}
     </RestauranteContext.Provider>
   );
-});
+};
 
 export const useDetalhesRestauranteContext = () => {
   const context = useContext(RestauranteContext);
 
   if (!context) {
     throw new Error(
-      'useDetalhesRestauranteContext precisa estar abaixo de um ResturanteProvider',
+      'useDetalhesRestauranteContext precisa estar abaixo de um RestauranteProvider',
     );
   }
 
   return context;
 };
 
-export default DetalhesRestauranteProvider;
+export default DetalhesRestaurantesProvider;

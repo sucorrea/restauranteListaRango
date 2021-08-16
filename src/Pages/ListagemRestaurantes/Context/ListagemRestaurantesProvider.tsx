@@ -2,46 +2,49 @@ import React, {
   createContext,
   PropsWithChildren,
   useContext,
-  useEffect,
   useState,
 } from 'react';
+import { useQuery } from 'react-query';
 
-import Api from '../../../api/Api';
-import { IRestaurante } from '../../../Types';
+import Api from '../../../api';
+import { IRestaurante, HttpResponse } from '../../../Types';
 
-type RestauranteContextValues = {
+type ListagemRestaurantesContextValues = {
   restaurantes: IRestaurante[];
-  filtrarRestaurante(name: string): void;
+  filtrarRestaurante: (name: string) => void;
 };
 
-const RestauranteContext = createContext<RestauranteContextValues>(
-  {} as RestauranteContextValues,
+const RestauranteContext = createContext<ListagemRestaurantesContextValues>(
+  {} as ListagemRestaurantesContextValues,
 );
 
-const ListagemRestauranteProvider = ({
+const ListagemRestaurantesProvider = ({
   children,
 }: PropsWithChildren<unknown>) => {
-  const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([]);
   const [restaurantesfiltro, setRestaurantesfiltro] = useState<IRestaurante[]>(
     [],
   );
 
-  useEffect(() => {
-    Api.get('/restaurantes/').then((res) => {
-      setRestaurantesfiltro(res.data);
-      setRestaurantes(res.data);
-    });
-  }, []);
+  async function BuscaRestaurantes(): Promise<HttpResponse<IRestaurante[]>> {
+    const dados: HttpResponse<IRestaurante[]> = await Api.get('restaurantes');
+
+    return dados;
+  }
+
+  const { data } = useQuery('dados-todos-restaurantes', () => BuscaRestaurantes(), {
+    onSuccess: (dataSucesso) => {
+      setRestaurantesfiltro(dataSucesso.data);
+    },
+  });
 
   const filtrarRestaurante = (name: string) => {
-    const filtro = restaurantes.filter(
-      (restaurante) => (
-        restaurante.name.toLocaleLowerCase().indexOf(name.toLowerCase()) > -1),
+    const filtro = data?.data.filter(
+      (restaurante) => restaurante.name.toLocaleLowerCase().indexOf(name.toLowerCase()) > -1,
     );
-    setRestaurantesfiltro(filtro);
+    setRestaurantesfiltro(filtro || []);
   };
 
-  const values: RestauranteContextValues = {
+  const values: ListagemRestaurantesContextValues = {
     restaurantes: restaurantesfiltro,
     filtrarRestaurante,
   };
@@ -53,16 +56,16 @@ const ListagemRestauranteProvider = ({
   );
 };
 
-export const useListagemRestauranteContext = () => {
+export const useListagemRestaurantesContext = () => {
   const context = useContext(RestauranteContext);
 
   if (!context) {
     throw new Error(
-      'useRestauranteContext precisa estar abaixo de um ResturanteProvider',
+      'useListagemRestaurantesContext precisa estar abaixo de um ListagemRestaurantesProvider',
     );
   }
 
   return context;
 };
 
-export default ListagemRestauranteProvider;
+export default ListagemRestaurantesProvider;

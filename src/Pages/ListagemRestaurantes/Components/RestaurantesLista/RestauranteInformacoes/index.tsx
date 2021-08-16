@@ -8,41 +8,42 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import useStyles from './styles';
-import { IRestaurante } from '../../../../Types';
+import { IRestaurante } from '../../../../../Types';
+
 import { DisponibilidadeRestaurante } from './DisponibilidadeRestaurante';
 
-const RestauranteInformações = ({
-  id, name, image, address, hours,
-} : IRestaurante) => {
+type RestauranteInformacoesProps = {
+  restaurantes: IRestaurante;
+};
+
+const RestauranteInformacoes = ({
+  restaurantes,
+}: RestauranteInformacoesProps) => {
   const classes = useStyles();
 
   return (
-    <Link to={`/restaurantes/${Number(id)}`} className={classes.root}>
+    <Link
+      to={`/restaurantes/${Number(restaurantes.id)}`}
+      className={classes.root}
+    >
       <Grid item xs={6} sm={3}>
         <Badge
           color="primary"
-          badgeContent={DisponibilidadeRestaurante(hours)}
+          badgeContent={DisponibilidadeRestaurante(restaurantes.hours)}
         >
           <Paper className={classes.paper}>
             <Box className={classes.imageWrapper}>
               <img
                 className={classes.image}
-                src={image}
-                alt={name}
+                src={restaurantes.image}
+                alt={restaurantes.name}
               />
             </Box>
             <Box className={classes.nameWrapper}>
-              <Typography
-                className={classes.name}
-                variant="subtitle1"
-              >
-                {name}
+              <Typography className={classes.name} variant="subtitle1">
+                {restaurantes.name}
               </Typography>
-              <Typography
-                variant="body2"
-              >
-                {address}
-              </Typography>
+              <Typography variant="body2">{restaurantes.address}</Typography>
             </Box>
           </Paper>
         </Badge>
@@ -51,4 +52,4 @@ const RestauranteInformações = ({
   );
 };
 
-export default RestauranteInformações;
+export default RestauranteInformacoes;
